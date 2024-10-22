@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def decaimiento_exponencial(N0, lam, t):
+    return N0 * np.exp(-lam * t)
+
+def graficar_decaimiento(N0, lam, tiempo_max, intervalos):
+    tiempos = np.linspace(0, tiempo_max, intervalos)
+    cristales = decaimiento_exponencial(N0, lam, tiempos)
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(tiempos, cristales, label=f'λ={lam}')
+    plt.title('Modelo de Decaimiento de Cristales')
+    plt.xlabel('Tiempo')
+    plt.ylabel('Cantidad de Cristales')
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+# Parámetros de entrada
+N0 = 2000  # Cantidad inicial de cristales
+lam = 0.5  # Constante de decaimiento
+tiempo_max = 50  # Tiempo máximo para la simulación
+intervalos = 100  # Número de intervalos para la gráfica
+
+graficar_decaimiento(N0, lam, tiempo_max, intervalos)
+
+[![git.png](https://i.postimg.cc/90WsVvrt/git.png)](https://postimg.cc/1njvr70f)
